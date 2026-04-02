@@ -143,7 +143,7 @@ ORDER BY avg_rating DESC;
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Shaikh Abdul Wahab**
 
 * 🎓 BCA Student | Data Analyst Enthusiast
 * 💼 Skills: SQL, Power BI, Python
