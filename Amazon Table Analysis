@@ -1,0 +1,42 @@
+-- Use Amazon Database management System
+
+use amazon;
+
+-- Drop database if needed
+
+drop database amazon;
+
+/*
+Analyzing Amazon Database managenment system
+by writting queries
+*/
+
+-- Retrieve all data from the Customer table
+select* from customers;
+
+-- Select a customer name column from the table 
+select name
+from customers;
+
+-- Select name along with email of the customer
+select name, email
+from customers;
+
+-- Select strating 4 customers
+select * from customers limit 4;
+
+-- select ending four customers
+select * from customers limit 4 offset 6;
+
+-- select in Descending order name
+select * from customers order by name desc;
+
+-- select customer in mumbai city
+select * from customers 
+where city = "Mumbai";
+
+-- Select Specific email of the customer
+select customer_id, email
+from customers where email = "aman@gmail.com";
+
+-- select 
