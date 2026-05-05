@@ -11,6 +11,12 @@ Analyzing Amazon Database managenment system
 by writting queries
 */
 
+/*
+=========================================
+1. Customers table
+========================================
+*/
+
 -- Retrieve all data from the Customer table
 select* from customers;
 
@@ -39,4 +45,333 @@ where city = "Mumbai";
 select customer_id, email
 from customers where email = "aman@gmail.com";
 
--- select 
+-- select Customer with phone numner
+select customer_id, phone from customers;
+
+-- Select Customer with a name strating with A
+SELECT * FROM customers WHERE name LIKE 'A%';
+
+/*
+========================================
+2. Seller Table
+=======================================
+*/
+
+-- retrieve all records from the tabkle
+select * from sellers;
+
+-- Select individuals column from the table
+SELECT name, city FROM sellers;
+
+-- Select seller with Highest rating
+SELECT * FROM sellers WHERE rating > 4.5;
+
+-- Select sellers from the Delhi location
+SELECT * FROM sellers WHERE city='Delhi';
+
+-- Select rating from Highest to lowest
+SELECT * FROM sellers ORDER BY rating DESC;
+
+-- Count total sellers;
+SELECT COUNT(*) FROM sellers;
+
+-- Select unique city from the seller table
+SELECT DISTINCT city FROM sellers;
+
+-- Select where  seller name is SellerA
+SELECT * FROM sellers WHERE name LIKE 'SellerA%';
+
+-- Show contact information  for Seller id 2.
+SELECT contact FROM sellers WHERE seller_id=2;
+
+-- Sellect Average rating from the seller.
+SELECT AVG(rating) FROM sellers;
+
+/*
+=========================================
+3. categories table
+=========================================
+*/
+
+-- Retrieve all records from the table
+select * from categories;
+
+-- Select category name from table
+SELECT category_name FROM categories;
+
+-- select only Active status from the table
+SELECT * FROM categories WHERE status='Active';
+
+-- select Category id 1 from the table.
+SELECT * FROM categories WHERE category_id=1;
+
+-- Select order wise category name.
+SELECT * FROM categories ORDER BY category_name;
+
+-- Count  total categories
+SELECT COUNT(*) FROM categories;
+
+-- Select unique status from the categories
+SELECT DISTINCT status FROM categories;
+
+-- Select Only categories strating from E.
+SELECT * FROM categories WHERE category_name LIKE 'E%';
+
+-- Select description of category id 3.
+SELECT description FROM categories WHERE category_id=3;
+
+-- Selct created date of category id 5.
+SELECT created_at FROM categories WHERE category_id=5;
+
+/*
+=========================================
+4. Product table
+========================================
+*/
+
+--  Retrieve all records from the table
+SELECT * FROM products;
+
+-- Select a specific column from the table
+SELECT name, price FROM products;
+
+-- Select only the products where price is greater than 1000
+SELECT * FROM products WHERE price > 10000;
+
+-- select only products where stock availability is less than 20
+SELECT * FROM products WHERE stock < 20;
+
+-- select price greater to lower
+SELECT * FROM products ORDER BY price DESC;
+
+-- Select stocks with lowest to highest
+SELECT * FROM products ORDER BY stock;
+
+-- Select total count of the product
+SELECT COUNT(*) FROM products;
+
+-- Select Average price from the table 
+SELECT AVG(price) FROM products;
+
+-- Select where seller id = 1. 
+SELECT * FROM products WHERE seller_id=1;
+
+-- Select Category id 1
+SELECT * FROM products WHERE category_id=1;
+
+/*
+============================================
+5. Order table
+============================================
+*/
+
+-- retrieve all records from the table
+select * from orders;
+
+-- Select Order id with amount
+SELECT order_id, total_amount FROM orders;
+
+-- Select orders with the status Delivererd
+SELECT * FROM orders WHERE status='Delivered';
+
+-- select customer id 1
+SELECT * FROM orders WHERE customer_id=1;
+
+-- Select order date from ending to strating
+SELECT * FROM orders ORDER BY order_date DESC;
+
+-- Count total order
+SELECT COUNT(*) FROM orders;
+
+-- Select total amount of orders.
+SELECT SUM(total_amount) FROM orders;
+
+-- Select Average price of order.
+SELECT AVG(total_amount) FROM orders;
+
+-- select amaount where amount is greater then 10000
+SELECT * FROM orders WHERE total_amount > 10000;
+
+-- Select Unique status from orders
+SELECT DISTINCT status FROM orders;
+
+/*
+=================================================
+6. Order Items
+=================================================
+*/
+
+-- retrieve all records from the table
+select * from order_items;
+
+-- Select Order id along with Product id 
+SELECT order_id, product_id FROM order_items;
+
+-- Select Order_items where quantity = 1
+SELECT * FROM order_items WHERE quantity=1;
+
+-- Select only order where price in greater then 5000
+SELECT * FROM order_items WHERE price > 5000;
+
+-- Select the highest price to lowest price of the product
+SELECT * FROM order_items ORDER BY price DESC;
+
+-- Select total count of the Orders_items
+SELECT COUNT(*) FROM order_items;
+
+-- Select total sum of all Quanity order
+SELECT SUM(quantity) FROM order_items;
+
+-- Select Average price of orders
+SELECT AVG(price) FROM order_items;
+
+-- Select Order where id no. = 1
+SELECT * FROM order_items WHERE order_id=1;
+
+-- Select Order where product id = 1
+SELECT * FROM order_items WHERE product_id=2;
+
+/*
+=====================================
+7. Payment
+=====================================
+*/
+
+-- retrieve all records from the table
+select * from payments;
+
+-- Select Payment methhod along with amount
+SELECT payment_method, amount FROM payments;
+
+-- Select only UPI payment method
+SELECT * FROM payments WHERE payment_method='UPI';
+
+-- select payment amount where amount is greater then 10000
+SELECT * FROM payments WHERE amount > 10000;
+
+-- select payment date from ending to start date
+SELECT * FROM payments ORDER BY payment_date DESC;
+
+-- Select total count of payments
+SELECT COUNT(*) FROM payments;
+
+-- Select Total amount of payments
+SELECT SUM(amount) FROM payments;
+
+-- Select Average amount from the payments
+SELECT AVG(amount) FROM payments;
+
+-- Select all payment method from the table
+SELECT DISTINCT payment_method FROM payments;
+
+-- Select payment where order_id 5
+SELECT * FROM payments WHERE order_id=5;
+
+/*
+==============================================
+8. Review table
+==============================================
+*/
+
+-- Retrieve all records from the table
+SELECT * FROM reviews;
+
+-- Select rating column along with Comments column
+SELECT rating, comment FROM reviews;
+
+-- Select Only entries having rating 5
+SELECT * FROM reviews WHERE rating=5;
+
+-- Select review where product_id = 1
+SELECT * FROM reviews WHERE product_id=1;
+
+-- Select review where customer id = 2
+SELECT * FROM reviews WHERE customer_id=2;
+
+-- Total count of reviews
+SELECT COUNT(*) FROM reviews;
+
+-- Select average rating from the table
+SELECT AVG(rating) FROM reviews;
+
+-- Select Highest rating to the lowest rating
+SELECT * FROM reviews ORDER BY rating DESC;
+
+-- select all rating from the table
+SELECT DISTINCT rating FROM reviews;
+
+-- Select only comment starting from G
+SELECT * FROM reviews WHERE comment LIKE 'G%';
+
+/*
+==========================================
+9. Shipping table
+==========================================
+*/
+
+-- Retrieve all records from the table
+select * from shipping;
+
+-- Select City along with staus from the table
+SELECT city, status FROM shipping;
+
+-- Select only with delivered status
+SELECT * FROM shipping WHERE status='Delivered';
+
+-- Select shipping where city name is Mumbai
+SELECT * FROM shipping WHERE city='Mumbai';
+
+-- select Shipping id from end to start
+SELECT * FROM shipping ORDER BY shipping_id DESC;
+
+-- Count total shippings
+SELECT COUNT(*) FROM shipping;
+
+-- Select only unique status
+SELECT DISTINCT status FROM shipping;
+
+-- Select shipping where Order id is 3
+SELECT * FROM shipping WHERE order_id=3;
+
+-- address column where shipping iid is 2
+SELECT address FROM shipping WHERE shipping_id=2;
+
+-- select Only city from the Shipping where city starts with B
+SELECT * FROM shipping WHERE city LIKE 'B%';
+
+/*
+=======================================
+10. Cart table
+=======================================
+*/
+-- Retrieve all records from the table
+select * from Cart;
+
+-- Select Customer id along Produst id from the table
+SELECT customer_id, product_id FROM cart;
+
+-- Select Only where quantity is greater then 1
+SELECT * FROM cart WHERE quantity > 1;
+
+-- Select where customer id is 1
+SELECT * FROM cart WHERE customer_id=1;
+
+-- Select from cart table wherer product id is 5
+SELECT * FROM cart WHERE product_id=5;
+
+-- Select Added_date from End to start from cart 
+SELECT * FROM cart ORDER BY added_date DESC;
+
+-- Select total count of cart
+SELECT COUNT(*) FROM cart;
+
+-- Select total quantity from the cart
+SELECT SUM(quantity) FROM cart;
+
+-- Seelct Average quantity fromm the cart
+SELECT AVG(quantity) FROM cart;
+
+-- Select a specific date from the cart
+SELECT * FROM cart WHERE added_date='2026-01-01';
+
+
