@@ -1,0 +1,727 @@
+-- Update and delete query for Amazon Database management system
+
+Use amazon;
+
+/*
+==========================================
+1. Customer Table
+==========================================
+*/
+
+-- Update city of customer with ID 1
+UPDATE customers SET city='Thane' WHERE customer_id=1;
+
+-- Update phone number of customer 2
+UPDATE customers SET phone='9000000000' WHERE customer_id=2;
+
+-- Change email of customer 3
+UPDATE customers SET email='sara_new@gmail.com' WHERE customer_id=3;
+
+-- Update name of customer 4
+UPDATE customers SET name='Aman Khan' WHERE customer_id=4;
+
+-- Change city for customer named Neha
+UPDATE customers SET city='Pune' WHERE name='Neha';
+
+-- Update phone for customer 6
+UPDATE customers SET phone='9111111111' WHERE customer_id=6;
+
+-- Update email for customer 7
+UPDATE customers SET email='zara123@gmail.com' WHERE customer_id=7;
+
+-- Change city of customer 8
+UPDATE customers SET city='Ahmedabad' WHERE customer_id=8;
+
+-- Update full name of customer 9
+UPDATE customers SET name='Meena Sharma' WHERE customer_id=9;
+
+-- Update phone number of customer 10
+UPDATE customers SET phone='9222222222' WHERE customer_id=10;
+
+/*
+======================================
+2. seller table 
+======================================
+*/
+
+-- Update rating of seller 1
+UPDATE sellers SET rating=4.6 WHERE seller_id=1;
+
+-- Change city of seller 2
+UPDATE sellers SET city='Noida' WHERE seller_id=2;
+
+-- Update contact of seller 3
+UPDATE sellers SET contact='9111111111' WHERE seller_id=3;
+
+-- Rename seller 4
+UPDATE sellers SET name='SellerX' WHERE seller_id=4;
+
+-- Increase rating of seller 5
+UPDATE sellers SET rating=4.9 WHERE seller_id=5;
+
+-- Change city of seller 6
+UPDATE sellers SET city='Indore' WHERE seller_id=6;
+
+-- Update contact of seller 7
+UPDATE sellers SET contact='9222222222' WHERE seller_id=7;
+
+-- Rename seller 8
+UPDATE sellers SET name='SellerY' WHERE seller_id=8;
+
+-- Adjust rating of seller 9
+UPDATE sellers SET rating=4.3 WHERE seller_id=9;
+
+-- Change city of seller 10
+UPDATE sellers SET city='Lucknow' WHERE seller_id=10;
+
+/*
+==================================
+3. Category
+==================================
+*/
+
+-- Set category 1 as inactive
+UPDATE categories SET status='Inactive' WHERE category_id=1;
+
+-- Rename category 2
+UPDATE categories SET category_name='Clothes' WHERE category_id=2;
+
+-- Update description of category 1
+UPDATE categories SET description='Electronic items' WHERE category_id=1;
+
+-- Change creation date of category 3
+UPDATE categories SET created_at='2026-02-01' WHERE category_id=3;
+
+-- Ensure category 4 is active
+UPDATE categories SET status='Active' WHERE category_id=4;
+
+-- Rename category 5
+UPDATE categories SET category_name='Home Decor' WHERE category_id=5;
+
+-- Update description of category 6
+UPDATE categories SET description='Beauty products' WHERE category_id=6;
+
+-- Change creation date of category 7
+UPDATE categories SET created_at='2026-03-01' WHERE category_id=7;
+
+-- Set category 8 inactive
+UPDATE categories SET status='Inactive' WHERE category_id=8;
+
+-- Rename category 9
+UPDATE categories SET category_name='Food Items' WHERE category_id=9;
+
+/*
+=============================
+4. Product  
+=============================
+*/
+
+-- Increase price of product 1
+UPDATE products SET price=65000 WHERE product_id=1;
+
+-- Update stock for product 2
+UPDATE products SET stock=15 WHERE product_id=2;
+
+-- Rename product 3
+UPDATE products SET name='Wireless Headphones' WHERE product_id=3;
+
+-- Change price of product 4
+UPDATE products SET price=4500 WHERE product_id=4;
+
+-- Update stock of product 5
+UPDATE products SET stock=20 WHERE product_id=5;
+
+-- Modify price of product 6
+UPDATE products SET price=27000 WHERE product_id=6;
+
+-- Reduce stock of product 7
+UPDATE products SET stock=5 WHERE product_id=7;
+
+-- Rename product 8
+UPDATE products SET name='Travel Bag' WHERE product_id=8;
+
+-- Increase price of product 9
+UPDATE products SET price=1500 WHERE product_id=9;
+
+-- Update stock of product 10
+UPDATE products SET stock=50 WHERE product_id=10;
+
+/*
+===================================
+5. Orders
+===================================
+*/
+
+-- Mark order 2 as delivered
+UPDATE orders SET status='Delivered' WHERE order_id=2;
+
+-- Update total amount for order 2
+UPDATE orders SET total_amount=32000 WHERE order_id=2;
+
+-- Cancel order 3
+UPDATE orders SET status='Cancelled' WHERE order_id=3;
+
+-- Change order date of order 4
+UPDATE orders SET order_date='2026-02-01' WHERE order_id=4;
+
+-- Mark order 5 as shipped
+UPDATE orders SET status='Shipped' WHERE order_id=5;
+
+-- Update amount for order 6
+UPDATE orders SET total_amount=26000 WHERE order_id=6;
+
+-- Mark order 7 as delivered
+UPDATE orders SET status='Delivered' WHERE order_id=7;
+
+-- Change order date for order 8
+UPDATE orders SET order_date='2026-03-01' WHERE order_id=8;
+
+-- Mark order 9 as pending
+UPDATE orders SET status='Pending' WHERE order_id=9;
+
+-- Update amount of order 10
+UPDATE orders SET total_amount=1000 WHERE order_id=10;
+
+/*
+===============================
+6. Order_items
+===============================
+*/
+
+-- Increase quantity for item 1
+UPDATE order_items SET quantity=2 WHERE item_id=1;
+
+-- Update price for item 2
+UPDATE order_items SET price=31000 WHERE item_id=2;
+
+-- Increase quantity for item 3
+UPDATE order_items SET quantity=3 WHERE item_id=3;
+
+-- Update price for item 4
+UPDATE order_items SET price=4500 WHERE item_id=4;
+
+-- Increase quantity for item 5
+UPDATE order_items SET quantity=2 WHERE item_id=5;
+
+-- Update price for item 6
+UPDATE order_items SET price=26000 WHERE item_id=6;
+
+-- Keep quantity unchanged for item 7
+UPDATE order_items SET quantity=1 WHERE item_id=7;
+
+-- Update price for item 8
+UPDATE order_items SET price=1600 WHERE item_id=8;
+
+-- Increase quantity for item 9
+UPDATE order_items SET quantity=4 WHERE item_id=9;
+
+-- Update price for item 10
+UPDATE order_items SET price=900 WHERE item_id=10;
+
+/*
+==========================================
+7. Payments
+==========================================
+*/
+
+-- Change payment method of payment 1
+UPDATE payments SET payment_method='Card' WHERE payment_id=1;
+
+-- Update amount of payment 2
+UPDATE payments SET amount=31000 WHERE payment_id=2;
+
+-- Change payment method of payment 3
+UPDATE payments SET payment_method='UPI' WHERE payment_id=3;
+
+-- Update payment date of payment 4
+UPDATE payments SET payment_date='2026-02-01' WHERE payment_id=4;
+
+-- Increase amount of payment 5
+UPDATE payments SET amount=5500 WHERE payment_id=5;
+
+-- Change method to cash for payment 6
+UPDATE payments SET payment_method='Cash' WHERE payment_id=6;
+
+-- Update payment date of payment 7
+UPDATE payments SET payment_date='2026-03-01' WHERE payment_id=7;
+
+-- Increase amount of payment 8
+UPDATE payments SET amount=2000 WHERE payment_id=8;
+
+-- Change payment method of payment 9
+UPDATE payments SET payment_method='Card' WHERE payment_id=9;
+
+-- Update amount of payment 10
+UPDATE payments SET amount=900 WHERE payment_id=10;
+
+/*
+======================================
+8. Reviews
+======================================
+*/
+
+-- Update rating for review 1
+UPDATE reviews SET rating=4 WHERE review_id=1;
+
+-- Change comment for review 2
+UPDATE reviews SET comment='Very Good' WHERE review_id=2;
+
+-- Lower rating for review 3
+UPDATE reviews SET rating=2 WHERE review_id=3;
+
+-- Update comment for review 4
+UPDATE reviews SET comment='Excellent Product' WHERE review_id=4;
+
+-- Adjust rating for review 5
+UPDATE reviews SET rating=3 WHERE review_id=5;
+
+-- Update comment for review 6
+UPDATE reviews SET comment='Nice Quality' WHERE review_id=6;
+
+-- Keep rating high for review 7
+UPDATE reviews SET rating=5 WHERE review_id=7;
+
+-- Update comment for review 8
+UPDATE reviews SET comment='Worth it' WHERE review_id=8;
+
+-- Adjust rating for review 9
+UPDATE reviews SET rating=4 WHERE review_id=9;
+
+-- Update comment for review 10
+UPDATE reviews SET comment='Highly recommended' WHERE review_id=10;
+
+/*
+=======================================
+9. Shipping table
+=======================================
+*/
+
+-- Update shipping status for record 2
+UPDATE shipping SET status='Shipped' WHERE shipping_id=2;
+
+-- Change city for shipping 1
+UPDATE shipping SET city='Thane' WHERE shipping_id=1;
+
+-- Update address for shipping 3
+UPDATE shipping SET address='New Address 3' WHERE shipping_id=3;
+
+-- Mark shipping 4 as delivered
+UPDATE shipping SET status='Delivered' WHERE shipping_id=4;
+
+-- Change city for shipping 5
+UPDATE shipping SET city='Delhi' WHERE shipping_id=5;
+
+-- Update address for shipping 6
+UPDATE shipping SET address='Updated Addr6' WHERE shipping_id=6;
+
+-- Mark shipping 7 as pending
+UPDATE shipping SET status='Pending' WHERE shipping_id=7;
+
+-- Change city for shipping 8
+UPDATE shipping SET city='Mumbai' WHERE shipping_id=8;
+
+-- Update address for shipping 9
+UPDATE shipping SET address='Addr Updated 9' WHERE shipping_id=9;
+
+-- Cancel shipping 10
+UPDATE shipping SET status='Cancelled' WHERE shipping_id=10;
+
+/*
+=============================================
+10. Cart
+=============================================
+*/
+
+-- Increase quantity in cart 1
+UPDATE cart SET quantity=2 WHERE cart_id=1;
+
+-- Update added date for cart 2
+UPDATE cart SET added_date='2026-02-01' WHERE cart_id=2;
+
+-- Increase quantity for cart 3
+UPDATE cart SET quantity=5 WHERE cart_id=3;
+
+-- Change product in cart 4
+UPDATE cart SET product_id=2 WHERE cart_id=4;
+
+-- Reduce quantity for cart 5
+UPDATE cart SET quantity=1 WHERE cart_id=5;
+
+-- Update date for cart 6
+UPDATE cart SET added_date='2026-03-01' WHERE cart_id=6;
+
+-- Increase quantity for cart 7
+UPDATE cart SET quantity=4 WHERE cart_id=7;
+
+-- Change product in cart 8
+UPDATE cart SET product_id=3 WHERE cart_id=8;
+
+-- Update quantity for cart 9
+UPDATE cart SET quantity=2 WHERE cart_id=9;
+
+-- Change added date for cart 10
+UPDATE cart SET added_date='2026-04-01' WHERE cart_id=10;
+
+/*
+Delete Query for Amazon Database analysis cleaning
+*/
+
+/*
+==============================
+1. Customer 
+==============================
+*/
+
+-- Delete customer with ID 1
+DELETE FROM customers WHERE customer_id=1;
+
+-- Delete customer from Delhi
+DELETE FROM customers WHERE city='Delhi';
+
+-- Delete customer named Sara
+DELETE FROM customers WHERE name='Sara';
+
+-- Delete customer with specific email
+DELETE FROM customers WHERE email='aman@gmail.com';
+
+-- Delete customer with phone number
+DELETE FROM customers WHERE phone='9876543214';
+
+-- Delete customer with ID 6
+DELETE FROM customers WHERE customer_id=6;
+
+-- Delete customer from Jaipur
+DELETE FROM customers WHERE city='Jaipur';
+
+-- Delete customer named Karan
+DELETE FROM customers WHERE name='Karan';
+
+-- Delete customer using email
+DELETE FROM customers WHERE email='meena@gmail.com';
+
+-- Delete customer with ID 10
+DELETE FROM customers WHERE customer_id=10;
+
+/*
+==============================
+2. Seller table
+==============================
+*/
+
+-- Delete seller with ID 1
+DELETE FROM sellers WHERE seller_id=1;
+
+-- Delete seller from Delhi
+DELETE FROM sellers WHERE city='Delhi';
+
+-- Delete seller named SellerC
+DELETE FROM sellers WHERE name='SellerC';
+
+-- Delete seller with low rating
+DELETE FROM sellers WHERE rating < 4.1;
+
+-- Delete seller with contact number
+DELETE FROM sellers WHERE contact='9000000005';
+
+-- Delete seller with ID 6
+DELETE FROM sellers WHERE seller_id=6;
+
+-- Delete seller from Jaipur
+DELETE FROM sellers WHERE city='Jaipur';
+
+-- Delete seller named SellerH
+DELETE FROM sellers WHERE name='SellerH';
+
+-- Delete seller with rating 4.9
+DELETE FROM sellers WHERE rating=4.9;
+
+-- Delete seller with ID 10
+DELETE FROM sellers WHERE seller_id=10;
+
+/*
+===================================
+3. Category table
+===================================
+*/
+
+-- Delete category with ID 1
+DELETE FROM categories WHERE category_id=1;
+
+-- Delete inactive category
+DELETE FROM categories WHERE status='Inactive';
+
+-- Delete category named Fashion
+DELETE FROM categories WHERE category_name='Fashion';
+
+-- Delete category with description Books
+DELETE FROM categories WHERE description='Reading';
+
+-- Delete category with ID 5
+DELETE FROM categories WHERE category_id=5;
+
+-- Delete category created on date
+DELETE FROM categories WHERE created_at='2026-01-01';
+
+-- Delete category named Sports
+DELETE FROM categories WHERE category_name='Sports';
+
+-- Delete category with ID 8
+DELETE FROM categories WHERE category_id=8;
+
+-- Delete category named Groceries
+DELETE FROM categories WHERE category_name='Groceries';
+
+-- Delete category with ID 10
+DELETE FROM categories WHERE category_id=10;
+
+/*
+======================================
+4. Product
+=====================================
+*/
+
+-- Delete product with ID 1
+DELETE FROM products WHERE product_id=1;
+
+-- Delete products with low stock
+DELETE FROM products WHERE stock < 10;
+
+-- Delete product named Phone
+DELETE FROM products WHERE name='Phone';
+
+-- Delete product with price above 50000
+DELETE FROM products WHERE price > 50000;
+
+-- Delete product belonging to seller 5
+DELETE FROM products WHERE seller_id=5;
+
+-- Delete product in category 3
+DELETE FROM products WHERE category_id=3;
+
+-- Delete product named Camera
+DELETE FROM products WHERE name='Camera';
+
+-- Delete product with stock 40
+DELETE FROM products WHERE stock=40;
+
+-- Delete product priced at 1200
+DELETE FROM products WHERE price=1200;
+
+-- Delete product with ID 10
+DELETE FROM products WHERE product_id=10;
+
+/*
+=======================================
+5. Orders
+=======================================
+*/
+
+-- Delete order with ID 1
+DELETE FROM orders WHERE order_id=1;
+
+-- Delete cancelled orders
+DELETE FROM orders WHERE status='Cancelled';
+
+-- Delete order of customer 3
+DELETE FROM orders WHERE customer_id=3;
+
+-- Delete order with amount less than 2000
+DELETE FROM orders WHERE total_amount < 2000;
+
+-- Delete shipped order
+DELETE FROM orders WHERE status='Shipped';
+
+-- Delete order placed on specific date
+DELETE FROM orders WHERE order_date='2026-01-06';
+
+-- Delete order of customer 7
+DELETE FROM orders WHERE customer_id=7;
+
+-- Delete pending order
+DELETE FROM orders WHERE status='Pending';
+
+-- Delete order with amount 1200
+DELETE FROM orders WHERE total_amount=1200;
+
+-- Delete order with ID 10
+DELETE FROM orders WHERE order_id=10;
+
+/*
+=================================
+6. Order_items
+=================================
+*/
+
+-- Delete item with ID 1
+DELETE FROM order_items WHERE item_id=1;
+
+-- Delete item linked to order 2
+DELETE FROM order_items WHERE order_id=2;
+
+-- Delete item of product 3
+DELETE FROM order_items WHERE product_id=3;
+
+-- Delete item with quantity 1
+DELETE FROM order_items WHERE quantity=1;
+
+-- Delete item priced at 5000
+DELETE FROM order_items WHERE price=5000;
+
+-- Delete item with ID 6
+DELETE FROM order_items WHERE item_id=6;
+
+-- Delete item linked to order 7
+DELETE FROM order_items WHERE order_id=7;
+
+-- Delete item of product 8
+DELETE FROM order_items WHERE product_id=8;
+
+-- Delete item with quantity greater than 2
+DELETE FROM order_items WHERE quantity > 2;
+
+-- Delete item with ID 10
+DELETE FROM order_items WHERE item_id=10;
+
+/*
+=================================
+7. Payments
+=================================
+*/
+
+-- Delete payment with ID 1
+DELETE FROM payments WHERE payment_id=1;
+
+-- Delete payments made by cash
+DELETE FROM payments WHERE payment_method='Cash';
+
+-- Delete payment linked to order 3
+DELETE FROM payments WHERE order_id=3;
+
+-- Delete payment amount below 2000
+DELETE FROM payments WHERE amount < 2000;
+
+-- Delete payment made on specific date
+DELETE FROM payments WHERE payment_date='2026-01-05';
+
+-- Delete payment with ID 6
+DELETE FROM payments WHERE payment_id=6;
+
+-- Delete payment using UPI
+DELETE FROM payments WHERE payment_method='UPI';
+
+-- Delete payment amount 45000
+DELETE FROM payments WHERE amount=45000;
+
+-- Delete payment linked to order 9
+DELETE FROM payments WHERE order_id=9;
+
+-- Delete payment with ID 10
+DELETE FROM payments WHERE payment_id=10;
+
+/*
+==================================
+8. Reviews
+==================================
+*/
+
+-- Delete review with ID 1
+DELETE FROM reviews WHERE review_id=1;
+
+-- Delete review with rating 2
+DELETE FROM reviews WHERE rating=2;
+
+-- Delete review of product 3
+DELETE FROM reviews WHERE product_id=3;
+
+-- Delete review by customer 4
+DELETE FROM reviews WHERE customer_id=4;
+
+-- Delete review with comment 'Nice'
+DELETE FROM reviews WHERE comment='Nice';
+
+-- Delete review with ID 6
+DELETE FROM reviews WHERE review_id=6;
+
+-- Delete review with rating below 4
+DELETE FROM reviews WHERE rating < 4;
+
+-- Delete review of product 8
+DELETE FROM reviews WHERE product_id=8;
+
+-- Delete review by customer 9
+DELETE FROM reviews WHERE customer_id=9;
+
+-- Delete review with ID 10
+DELETE FROM reviews WHERE review_id=10;
+
+/*
+====================================
+9. Shipping
+====================================
+*/
+
+-- Delete shipping record with ID 1
+DELETE FROM shipping WHERE shipping_id=1;
+
+-- Delete pending shipments
+DELETE FROM shipping WHERE status='Pending';
+
+-- Delete shipment for order 3
+DELETE FROM shipping WHERE order_id=3;
+
+-- Delete shipment from Mumbai
+DELETE FROM shipping WHERE city='Mumbai';
+
+-- Delete shipment with address Addr5
+DELETE FROM shipping WHERE address='Addr5';
+
+-- Delete shipment with ID 6
+DELETE FROM shipping WHERE shipping_id=6;
+
+-- Delete cancelled shipment
+DELETE FROM shipping WHERE status='Cancelled';
+
+-- Delete shipment from Surat
+DELETE FROM shipping WHERE city='Surat';
+
+-- Delete shipment for order 9
+DELETE FROM shipping WHERE order_id=9;
+
+-- Delete shipment with ID 10
+DELETE FROM shipping WHERE shipping_id=10;
+
+/*
+========================================
+10. Cart table
+========================================
+*/
+
+-- Delete cart item with ID 1
+DELETE FROM cart WHERE cart_id=1;
+
+-- Delete cart items with quantity 1
+DELETE FROM cart WHERE quantity=1;
+
+-- Delete cart item for customer 3
+DELETE FROM cart WHERE customer_id=3;
+
+-- Delete cart item for product 4
+DELETE FROM cart WHERE product_id=4;
+
+-- Delete cart item added on date
+DELETE FROM cart WHERE added_date='2026-01-05';
+
+-- Delete cart item with ID 6
+DELETE FROM cart WHERE cart_id=6;
+
+-- Delete cart item with quantity greater than 2
+DELETE FROM cart WHERE quantity > 2;
+
+-- Delete cart item for customer 8
+DELETE FROM cart WHERE customer_id=8;
+
+-- Delete cart item for product 9
+DELETE FROM cart WHERE product_id=9;
+
+-- Delete cart item with ID 10
+DELETE FROM cart WHERE cart_id=10;
