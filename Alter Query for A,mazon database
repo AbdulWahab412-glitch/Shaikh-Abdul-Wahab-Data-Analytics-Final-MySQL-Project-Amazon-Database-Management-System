@@ -1,0 +1,371 @@
+-- Allter table query for Amazon database Management system 
+
+/*
+Alter quries for Rearranging the 
+table struture
+*/
+
+-- Use the amazon Database
+use amazon;
+
+/*
+=========================================
+1. Customer table
+=========================================
+*/
+
+-- Add date_of_birth column
+ALTER TABLE customers ADD date_of_birth DATE;
+
+-- Add gender column
+ALTER TABLE customers ADD gender VARCHAR(10);
+
+-- Modify phone column size
+ALTER TABLE customers MODIFY phone VARCHAR(20);
+
+-- Rename column name to customer_name
+ALTER TABLE customers RENAME COLUMN name TO customer_name;
+
+-- Add default city value
+ALTER TABLE customers ALTER city SET DEFAULT 'Mumbai';
+
+-- Drop gender column
+ALTER TABLE customers DROP COLUMN gender;
+
+-- Add unique constraint on email
+ALTER TABLE customers ADD CONSTRAINT unique_email UNIQUE(email);
+
+-- Rename table customers_backup
+ALTER TABLE customers RENAME TO customers_backup;
+
+-- Rename table back to customers
+ALTER TABLE customers_backup RENAME TO customers;
+
+-- Add status column
+ALTER TABLE customers ADD status VARCHAR(20);
+
+/*
+=====================================
+2. Seller table
+=====================================
+*/
+
+-- Add seller_address column
+ALTER TABLE sellers ADD seller_address VARCHAR(255);
+
+-- Add gst_number column
+ALTER TABLE sellers ADD gst_number VARCHAR(50);
+
+-- Modify contact column size
+ALTER TABLE sellers MODIFY contact VARCHAR(20);
+
+-- Rename column name to seller_name
+ALTER TABLE sellers RENAME COLUMN name TO seller_name;
+
+-- Add default rating
+ALTER TABLE sellers ALTER rating SET DEFAULT 4.0;
+
+-- Drop gst_number column
+ALTER TABLE sellers DROP COLUMN gst_number;
+
+-- Add unique constraint on contact
+ALTER TABLE sellers ADD CONSTRAINT unique_contact UNIQUE(contact);
+
+-- Rename table sellers_temp
+ALTER TABLE sellers RENAME TO sellers_temp;
+
+-- Rename back to sellers
+ALTER TABLE sellers_temp RENAME TO sellers;
+
+-- Add seller_status column
+ALTER TABLE sellers ADD seller_status VARCHAR(20);
+
+/*
+======================================
+3. category table
+=====================================
+*/
+
+-- Add category_code column
+ALTER TABLE categories ADD category_code VARCHAR(20);
+
+-- Add updated_at column
+ALTER TABLE categories ADD updated_at DATE;
+
+-- Modify description size
+ALTER TABLE categories MODIFY description VARCHAR(255);
+
+-- Rename category_name column
+ALTER TABLE categories RENAME COLUMN category_name TO category_title;
+
+-- Add default status
+ALTER TABLE categories ALTER status SET DEFAULT 'Active';
+
+-- Drop updated_at column
+ALTER TABLE categories DROP COLUMN updated_at;
+
+-- Add unique constraint on category_code
+ALTER TABLE categories ADD CONSTRAINT unique_category UNIQUE(category_code);
+
+-- Rename table category_master
+ALTER TABLE categories RENAME TO category_master;
+
+-- Rename back to categories
+ALTER TABLE category_master RENAME TO categories;
+
+-- Add remarks column
+ALTER TABLE categories ADD remarks VARCHAR(100);
+
+/*
+=================================
+4. Product table
+=================================
+*/
+
+-- Add product_brand column
+ALTER TABLE products ADD product_brand VARCHAR(50);
+
+-- Add manufacture_date column
+ALTER TABLE products ADD manufacture_date DATE;
+
+-- Modify stock datatype
+ALTER TABLE products MODIFY stock BIGINT;
+
+-- Rename column name to product_name
+ALTER TABLE products RENAME COLUMN name TO product_name;
+
+-- Add default stock value
+ALTER TABLE products ALTER stock SET DEFAULT 0;
+
+-- Drop manufacture_date column
+ALTER TABLE products DROP COLUMN manufacture_date;
+
+-- Add unique constraint on product_name
+ALTER TABLE products ADD CONSTRAINT unique_product UNIQUE(product_name);
+
+-- Rename table product_master
+ALTER TABLE products RENAME TO product_master;
+
+-- Rename back to products
+ALTER TABLE product_master RENAME TO products;
+
+-- Add warranty column
+ALTER TABLE products ADD warranty VARCHAR(50);
+
+/*
+=======================================
+5. Orders table
+=======================================
+*/
+
+-- Add delivery_date column
+ALTER TABLE orders ADD delivery_date DATE;
+
+-- Add order_type column
+ALTER TABLE orders ADD order_type VARCHAR(50);
+
+-- Modify status column size
+ALTER TABLE orders MODIFY status VARCHAR(50);
+
+-- Rename total_amount column
+ALTER TABLE orders RENAME COLUMN total_amount TO order_amount;
+
+-- Add default status
+ALTER TABLE orders ALTER status SET DEFAULT 'Pending';
+
+-- Drop order_type column
+ALTER TABLE orders DROP COLUMN order_type;
+
+-- Add unique constraint on order_id
+ALTER TABLE orders ADD CONSTRAINT unique_order UNIQUE(order_id);
+
+-- Rename table orders_history
+ALTER TABLE orders RENAME TO orders_history;
+
+-- Rename back to orders
+ALTER TABLE orders_history RENAME TO orders;
+
+-- Add order_notes column
+ALTER TABLE orders ADD order_notes VARCHAR(255);
+
+/*
+===================================
+6. Order_items table
+==================================
+*/
+
+-- Add discount column
+ALTER TABLE order_items ADD discount DECIMAL(10,2);
+
+-- Add tax column
+ALTER TABLE order_items ADD tax DECIMAL(10,2);
+
+-- Modify quantity datatype
+ALTER TABLE order_items MODIFY quantity BIGINT;
+
+-- Rename price column
+ALTER TABLE order_items RENAME COLUMN price TO item_price;
+
+-- Add default quantity value
+ALTER TABLE order_items ALTER quantity SET DEFAULT 1;
+
+-- Drop tax column
+ALTER TABLE order_items DROP COLUMN tax;
+
+-- Add unique constraint on item_id
+ALTER TABLE order_items ADD CONSTRAINT unique_item UNIQUE(item_id);
+
+-- Rename table items_master
+ALTER TABLE order_items RENAME TO items_master;
+
+-- Rename back to order_items
+ALTER TABLE items_master RENAME TO order_items;
+
+-- Add item_status column
+ALTER TABLE order_items ADD item_status VARCHAR(20);
+
+/*
+=========================
+Payment table
+=========================
+*/
+
+-- Add transaction_id column
+ALTER TABLE payments ADD transaction_id VARCHAR(100);
+
+-- Add payment_status column
+ALTER TABLE payments ADD payment_status VARCHAR(20);
+
+-- Modify payment_method column size
+ALTER TABLE payments MODIFY payment_method VARCHAR(100);
+
+-- Rename amount column
+ALTER TABLE payments RENAME COLUMN amount TO payment_amount;
+
+-- Add default payment status
+ALTER TABLE payments ALTER payment_status SET DEFAULT 'Success';
+
+-- Drop transaction_id column
+ALTER TABLE payments DROP COLUMN transaction_id;
+
+-- Add unique constraint on payment_id
+ALTER TABLE payments ADD CONSTRAINT unique_payment UNIQUE(payment_id);
+
+-- Rename table payments_backup
+ALTER TABLE payments RENAME TO payments_backup;
+
+-- Rename back to payments
+ALTER TABLE payments_backup RENAME TO payments;
+
+-- Add gateway_name column
+ALTER TABLE payments ADD gateway_name VARCHAR(50);
+
+
+/*
+================================
+8. Reviews table
+================================
+*/
+
+-- Add review_date column
+ALTER TABLE reviews ADD review_date DATE;
+
+-- Add review_title column
+ALTER TABLE reviews ADD review_title VARCHAR(100);
+
+-- Modify comment column size
+ALTER TABLE reviews MODIFY comment VARCHAR(500);
+
+-- Rename comment column
+ALTER TABLE reviews RENAME COLUMN comment TO review_comment;
+
+-- Add default rating
+ALTER TABLE reviews ALTER rating SET DEFAULT 5;
+
+-- Drop review_title column
+ALTER TABLE reviews DROP COLUMN review_title;
+
+-- Add unique constraint on review_id
+ALTER TABLE reviews ADD CONSTRAINT unique_review UNIQUE(review_id);
+
+-- Rename table customer_reviews
+ALTER TABLE reviews RENAME TO customer_reviews;
+
+-- Rename back to reviews
+ALTER TABLE customer_reviews RENAME TO reviews;
+
+-- Add review_status column
+ALTER TABLE reviews ADD review_status VARCHAR(20);
+
+/*
+======================================
+9. Shipping table
+======================================
+*/
+
+-- Add delivery_partner column
+ALTER TABLE shipping ADD delivery_partner VARCHAR(100);
+
+-- Add tracking_number column
+ALTER TABLE shipping ADD tracking_number VARCHAR(100);
+
+-- Modify address column size
+ALTER TABLE shipping MODIFY address VARCHAR(500);
+
+-- Rename status column
+ALTER TABLE shipping RENAME COLUMN status TO shipping_status;
+
+-- Add default shipping status
+ALTER TABLE shipping ALTER shipping_status SET DEFAULT 'Pending';
+
+-- Drop tracking_number column
+ALTER TABLE shipping DROP COLUMN tracking_number;
+
+-- Add unique constraint on shipping_id
+ALTER TABLE shipping ADD CONSTRAINT unique_shipping UNIQUE(shipping_id);
+
+-- Rename table shipping_records
+ALTER TABLE shipping RENAME TO shipping_records;
+
+-- Rename back to shipping
+ALTER TABLE shipping_records RENAME TO shipping;
+
+-- Add dispatch_date column
+ALTER TABLE shipping ADD dispatch_date DATE;
+
+/*
+================================
+10. Cart table
+================================
+*/
+
+-- Add cart_status column
+ALTER TABLE cart ADD cart_status VARCHAR(20);
+
+-- Add expiry_date column
+ALTER TABLE cart ADD expiry_date DATE;
+
+-- Modify quantity datatype
+ALTER TABLE cart MODIFY quantity BIGINT;
+
+-- Rename added_date column
+ALTER TABLE cart RENAME COLUMN added_date TO cart_added_date;
+
+-- Add default quantity value
+ALTER TABLE cart ALTER quantity SET DEFAULT 1;
+
+-- Drop expiry_date column
+ALTER TABLE cart DROP COLUMN expiry_date;
+
+-- Add unique constraint on cart_id
+ALTER TABLE cart ADD CONSTRAINT unique_cart UNIQUE(cart_id);
+
+-- Rename table shopping_cart
+ALTER TABLE cart RENAME TO shopping_cart;
+
+-- Rename back to cart
+ALTER TABLE shopping_cart RENAME TO cart;
+
+-- Add coupon_code column
+ALTER TABLE cart ADD coupon_code VARCHAR(50);
+
